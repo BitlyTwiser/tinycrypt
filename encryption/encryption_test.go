@@ -39,7 +39,7 @@ func TestFileDecrypt(t *testing.T) {
 }
 
 func TestPdfEncrypt(t *testing.T) {
-	enc := Encryption{FilePath: "../../testing/testing_files/test.pdf", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "../testing/testing_files/test.pdf", SecureString: "Password123adar$"}
 
 	err := enc.Encrypt()
 
@@ -47,7 +47,7 @@ func TestPdfEncrypt(t *testing.T) {
 }
 
 func TestPdfDecrypt(t *testing.T) {
-	enc := Encryption{FilePath: "../../testing/testing_files/test.pdf", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "../testing/testing_files/test.pdf", SecureString: "Password123adar$"}
 
 	err := enc.Decrypt()
 	//Ensure that decryption does not fail.
@@ -55,7 +55,7 @@ func TestPdfDecrypt(t *testing.T) {
 }
 
 func TestBadFileType(t *testing.T) {
-	enc := Encryption{FilePath: "../../testing/testing_files/test", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "../testing/testing_files/test", SecureString: "Password123adar$"}
 
 	err := enc.Encrypt()
 
