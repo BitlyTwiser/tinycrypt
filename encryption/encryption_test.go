@@ -1,7 +1,7 @@
 package encryption_test
 
 import (
-  . "github.com/BitlyTwiser/tinycrypt"
+  . "github.com/BitlyTwiser/tinycrypt/encryption"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
