@@ -1,7 +1,7 @@
-package encryption_test
+package tinycrypt_test
 
 import (
-  . "github.com/BitlyTwiser/tinycrypt/encryption"
+	. "github.com/BitlyTwiser/tinycrypt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -15,7 +15,7 @@ func TestOpenFile(t *testing.T) {
 	assert.Nil(t, badVal)
 	assert.Nil(t, fileData)
 
-	existingVal, fileData, _ := OpenFile("../testing/testing_files/items.txt")
+	existingVal, fileData, _ := OpenFile("./testing/testing_files/items.txt")
 
 	if assert.NotNil(t, *existingVal) && assert.NotNil(t, *fileData) {
 		t.Log("File exists properly")
@@ -23,7 +23,7 @@ func TestOpenFile(t *testing.T) {
 }
 
 func TestFileEncrypt(t *testing.T) {
-	enc := Encryption{FilePath: "../testing/testing_files/test.txt", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "./testing/testing_files/test.txt", SecureString: "Password123adar$"}
 
 	err := enc.Encrypt()
 
@@ -31,7 +31,7 @@ func TestFileEncrypt(t *testing.T) {
 }
 
 func TestFileDecrypt(t *testing.T) {
-	enc := Encryption{FilePath: "../testing/testing_files/test.txt", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "./testing/testing_files/test.txt", SecureString: "Password123adar$"}
 
 	err := enc.Decrypt()
 	//Ensure that decryption does not fail.
@@ -39,7 +39,7 @@ func TestFileDecrypt(t *testing.T) {
 }
 
 func TestPdfEncrypt(t *testing.T) {
-	enc := Encryption{FilePath: "../testing/testing_files/test.pdf", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "./testing/testing_files/test.pdf", SecureString: "Password123adar$"}
 
 	err := enc.Encrypt()
 
@@ -47,7 +47,7 @@ func TestPdfEncrypt(t *testing.T) {
 }
 
 func TestPdfDecrypt(t *testing.T) {
-	enc := Encryption{FilePath: "../testing/testing_files/test.pdf", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "./testing/testing_files/test.pdf", SecureString: "Password123adar$"}
 
 	err := enc.Decrypt()
 	//Ensure that decryption does not fail.
@@ -55,7 +55,7 @@ func TestPdfDecrypt(t *testing.T) {
 }
 
 func TestBadFileType(t *testing.T) {
-	enc := Encryption{FilePath: "../testing/testing_files/test", SecureString: "Password123adar$"}
+	enc := Encryption{FilePath: "./testing/testing_files/test", SecureString: "Password123adar$"}
 
 	err := enc.Encrypt()
 
