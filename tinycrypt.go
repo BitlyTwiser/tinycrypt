@@ -1,4 +1,4 @@
-package encryption
+package tinycrypt 
 
 import (
 	"crypto/aes"
@@ -29,6 +29,10 @@ type Encryption struct {
 var invalidFileHeaders []string = []string{"exe", "elf"}
 var empty void
 
+// OpenFile performs a few tasks.
+// 1. Initial validation of a files existence on disk.
+// 2. Ensuring that the file of capable of being encrypted (binary files, cannot be)
+// 3. The final step is obtaining the byte array from an opened file and returning this byte array to the calling process. 
 func OpenFile(FilePath string) (*os.File, *[]byte, error) {
 	fileData, valid := ValidFile(FilePath)
 
@@ -47,6 +51,7 @@ func OpenFile(FilePath string) (*os.File, *[]byte, error) {
 	return file, fileData, nil
 }
 
+// ValidFile ensures that a file is of a valid type, using the first 4 bites of a file header to denote if the file selected is capable of encryption.
 func ValidFile(FilePath string) (*[]byte, bool) {
 	file, err := os.ReadFile(FilePath)
 
@@ -90,6 +95,7 @@ func contains[V int | string | float64](searchVal V, searchArray []V) bool {
 	return false
 }
 
+// Encrypt is the primary encryption method used to encrypt a file on disk.
 func (e Encryption) Encrypt() error {
 	file, fileData, err := OpenFile(e.FilePath)
 
@@ -114,6 +120,7 @@ func (e Encryption) Encrypt() error {
 	return nil
 }
 
+// Decrypt is the primary method used to decrypt a file on disk.
 func (e Encryption) Decrypt() error {
 	//Get fileData
 	file, fileData, err := OpenFile(e.FilePath)
@@ -146,6 +153,7 @@ func shaHash(hashValue string) string {
 	return fmt.Sprintf("%x", v.Sum(nil))
 }
 
+// encryptByteStream is the primary function that performs the encryption of the byte array
 func encryptByteStream(data []byte, secureString string) (*[]byte, error) {
 	key, _ := hex.DecodeString(secureString)
 
@@ -173,7 +181,7 @@ func encryptByteStream(data []byte, secureString string) (*[]byte, error) {
 	return &ciphertext, nil
 }
 
-// returns the decrypted file contents
+// decryptData returns the decrypted file contents
 // Returns Pointer to bytes array to avoid creating an objcet evertime we pass a value back.
 func decryptData(data string, secureString string) (*[]byte, error) {
 	key, _ := hex.DecodeString(secureString)
