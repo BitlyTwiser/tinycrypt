@@ -1,4 +1,4 @@
-package tinycrypt 
+package tinycrypt
 
 import (
 	"crypto/aes"
@@ -6,12 +6,12 @@ import (
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/hex"
+	"errors"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"strings"
-  "errors"
 )
 
 type Encrypter interface {
@@ -32,7 +32,7 @@ var empty void
 // OpenFile performs a few tasks.
 // 1. Initial validation of a files existence on disk.
 // 2. Ensuring that the file of capable of being encrypted (binary files, cannot be)
-// 3. The final step is obtaining the byte array from an opened file and returning this byte array to the calling process. 
+// 3. The final step is obtaining the byte array from an opened file and returning this byte array to the calling process.
 func OpenFile(FilePath string) (*os.File, *[]byte, error) {
 	fileData, valid := ValidFile(FilePath)
 

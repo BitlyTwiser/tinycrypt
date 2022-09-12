@@ -1,7 +1,7 @@
 package tinycrypt_test
 
 import (
-  . "github.com/BitlyTwiser/tinycrypt"
+	. "github.com/BitlyTwiser/tinycrypt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
