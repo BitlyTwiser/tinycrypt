@@ -2,9 +2,10 @@
 Tiny library for encrypting files and byte streams
 
 # Installation:
-```go mod tidy```
+```go get github.com/BitlyTwiser/tinychunk```
 
 # Testing:
+- Initially run ```go mod tidy``` to install necessary packages.
 - One can test the module via utilizing the go test framework.
 ```go test tinycrypt_test.go -v```
 
