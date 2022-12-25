@@ -1,5 +1,8 @@
 # tinycrypt
-Tiny library for encrypting files and byte streams
+[![Go Report
+Card](https://goreportcard.com/report/github.com/BitlyTwiser/tinycrypt)](https://goreportcard.com/report/github.com/BitlyTwiser/tinycrypt)
+
+Tiny library for encrypting files and byte streams.
 
 # Installation:
 ```go get github.com/BitlyTwiser/tinychunk```
