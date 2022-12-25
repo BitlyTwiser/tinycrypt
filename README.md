@@ -1,6 +1,6 @@
 # tinycrypt
-[![Go Report
-Card](https://goreportcard.com/report/github.com/BitlyTwiser/tinycrypt)](https://goreportcard.com/report/github.com/BitlyTwiser/tinycrypt)
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/BitlyTwiser/tinycrypt)](https://goreportcard.com/report/github.com/BitlyTwiser/tinycrypt)
 
 Tiny library for encrypting files and byte streams.
 
